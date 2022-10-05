@@ -8,7 +8,7 @@ export const useLogin = (email, password)=>{
     const [isePending,setIsPending]=useState(false)
     const {dispatch} =useAuthContext()
 
-    const login = async()=>{
+    const login = async(email, password)=>{
         setError(null)
         setIsPending(true)
     //login the user
@@ -20,8 +20,8 @@ export const useLogin = (email, password)=>{
 
         //update state
         if(!isCancelled){
-            setError(err.message)
             setIsPending(false)
+            setError(null)
            }
         }
         catch (err){
